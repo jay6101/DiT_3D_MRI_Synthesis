@@ -1,0 +1,40 @@
+{
+    "overall_results": {
+        "accuracy": {
+            "mean": 0.8283828382838284,
+            "std": 0.0
+        },
+        "auc_roc": {
+            "mean": 0.9074553571428571,
+            "std": 0.0
+        },
+        "auc_pr": {
+            "mean": 0.9423311795188885,
+            "std": 0.0
+        },
+        "ppv": {
+            "mean": 0.8596491228070176,
+            "std": 0.0
+        },
+        "sensitivity": {
+            "mean": 0.84,
+            "std": 0.0
+        },
+        "specificity": {
+            "mean": 0.8125,
+            "std": 0.0
+        },
+        "precision": {
+            "mean": 0.8596491228070176,
+            "std": 0.0
+        },
+        "recall": {
+            "mean": 0.84,
+            "std": 0.0
+        },
+        "f1_score": {
+            "mean": 0.8497109826589595,
+            "std": 0.0
+        }
+    }
+}

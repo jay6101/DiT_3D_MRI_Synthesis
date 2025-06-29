@@ -23,6 +23,7 @@ MANIFEST
 
 # PyTorch
 *.pth
+*.npy
 *.pt
 *.ckpt
 checkpoint/
@@ -50,7 +51,8 @@ raw_data/
 processed_data/
 latent_data/
 synthetic_data_pkls_*/
-fid_results/
+classifier/new_runs/*/*/fold_1
+# fid_results/ - Now tracked (excluding only model files)
 
 # CSV files with data paths (may contain sensitive paths)
 train.csv
@@ -58,12 +60,12 @@ val.csv
 test.csv
 # Note: qualitative_results.csv and analysis CSVs are tracked
 
-# Model outputs
-best_runs/
-new_runs/
+# Model outputs  
+# best_runs/ - Now tracked (excluding only .pth/.pt/.ckpt files)
+# new_runs/ - Now tracked (excluding only .pth/.pt/.ckpt files)  
 saved_models/
 synthetic_samples/
-saliency_maps/
+saliency_maps/ - Now tracked (excluding only large model files)
 
 # Environment
 .env
