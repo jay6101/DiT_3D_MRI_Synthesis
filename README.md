@@ -44,12 +44,6 @@ Diffusion_paper/
 
 ## Getting Started
 
-### Prerequisites
-
-- Python 3.8+
-- CUDA-compatible GPU (recommended for training)
-- Required packages (see individual component READMEs for specific requirements)
-
 ### Quick Start
 
 1. **Data Preparation**: Use `data_split.ipynb` to prepare your dataset splits
@@ -89,24 +83,3 @@ This work focuses on:
 - **T1-weighted MRI**: Structural brain imaging modality
 - **Synthetic Data Generation**: Augmenting limited medical datasets while preserving privacy
 - **Interpretability**: Understanding which brain regions are important for classification
-
-## Citation
-
-If you use this code in your research, please cite our paper:
-```bibtex
-[Citation information to be added]
-```
-
-## Contributing
-
-Please read the individual component READMEs for specific contribution guidelines and implementation details.
-
-## License
-
-[License information to be added]
-
-## Related Work
-
-- Diffusion Models: Ho et al. "Denoising Diffusion Probabilistic Models"
-- Medical Image Synthesis: Various applications in medical imaging
-- Latent Diffusion: Rombach et al. "High-Resolution Image Synthesis with Latent Diffusion Models" 

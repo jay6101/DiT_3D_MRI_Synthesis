@@ -172,12 +172,6 @@ class MRIDataset:
     """
 ```
 
-### Memory Optimization
-
-- **Gradient Checkpointing**: Reduces memory usage during training
-- **Mixed Precision**: FP16 training support
-- **Efficient Attention**: Window-based attention reduces memory complexity
-
 ### Sampling Strategies
 
 #### DDPM Sampling
@@ -247,23 +241,3 @@ synthetic_data = diffusion_model.sample(num_samples=1000)
 classifier.train(real_data + synthetic_data)
 ```
 
-## Troubleshooting
-
-### Common Issues
-
-1. **Training Instability**: Try gradient clipping or lower learning rate
-2. **Mode Collapse**: Increase model capacity or adjust noise schedule
-3. **Memory Issues**: Reduce batch size or use gradient checkpointing
-
-### Performance Tips
-
-- Monitor the loss curve for stable convergence
-- Use EMA for better sample quality
-- Adjust noise schedule based on your data distribution
-- Consider using different attention window sizes for different datasets
-
-## Related Components
-
-- `../VAE/`: Provides latent space for diffusion modeling
-- `../classifier/`: Evaluates quality of generated samples
-- `./latent_data/`: Pre-computed VAE latents for training 

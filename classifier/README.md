@@ -36,11 +36,7 @@ The framework supports multiple architectures through dynamic model loading:
 ```python
 # Available model architectures
 models = [
-    'resnet3d',          # 3D ResNet variants
-    'densenet3d',        # 3D DenseNet variants  
-    'efficientnet3d',    # 3D EfficientNet variants
-    'vit3d',            # 3D Vision Transformer
-    'custom_cnn',       # Custom CNN architectures
+    'efficientNetV2',    # 2D EfficientNet with modified first layer
 ]
 ```
 
@@ -54,18 +50,6 @@ def get_model_class(modelname):
 ```
 
 ## Usage
-
-### Training with Cross-Validation
-
-```bash
-python run.py \
-    --model_name resnet3d \
-    --train_csv /path/to/train.csv \
-    --test_csv /path/to/test.csv \
-    --batch_size 4 \
-    --num_epochs 100 \
-    --learning_rate 1e-4
-```
 
 ### Key Training Features
 
@@ -103,25 +87,22 @@ hyperparams = {
     'dropout_rate': 0.5,
     
     # Training parameters
-    'batch_size': 4,                    # Small due to 3D memory requirements
-    'learning_rate': 1e-4,
-    'weight_decay': 1e-4,
+    'batch_size': 128,                  
+    'learning_rate': 1e-3,
+    'weight_decay': 0,
     'num_epochs': 100,
     
     # Scheduler settings
     'scheduler_type': 'cosine',         # 'cosine' or 'plateau'
-    'cosine_t0': 10,                   # Cosine annealing period
+    'cosine_t0': 25,                   # Cosine annealing period
     'cosine_t_mult': 2,                # Period multiplier
-    'cosine_eta_min': 1e-6,            # Minimum learning rate
+    'cosine_eta_min': 1e-5,            # Minimum learning rate
     
     # Data settings
-    'val_split': 0.2,                  # Validation split ratio
+    'val_split': 0.37,                  # Validation split ratio
     'num_workers': 4,                  # DataLoader workers
     'pin_memory': True,                # GPU memory optimization
     
-    # Synthetic data
-    'use_synthetic': True,             # Include synthetic samples
-    'synthetic_ratio': 0.5,            # Fraction of synthetic data
 }
 ```
 
@@ -152,7 +133,6 @@ def calculate_metrics(y_true, y_pred, y_scores):
     - precision: Positive predictive value
     - f1_score: Harmonic mean of precision and recall
     - auc: Area under ROC curve
-    - balanced_accuracy: Average of sensitivity and specificity
     """
 ```
 
@@ -295,10 +275,3 @@ classification_performance = classifier.evaluate(vae_reconstructions)
 synthetic_samples = diffusion_model.sample(num_samples=1000)
 synthetic_performance = classifier.evaluate(synthetic_samples)
 ```
-
-## Related Components
-
-- `../VAE/`: Provides reconstructed images for evaluation
-- `../diffusion/`: Provides synthetic samples for training augmentation  
-- `../data_csvs/`: Contains train/validation/test splits
-- `./SALIENCY_README.md`: Detailed saliency analysis documentation 
