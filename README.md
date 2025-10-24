@@ -36,8 +36,6 @@ Diffusion_paper/
 ├── synthetic_data_pkls_TLE/       # Generated TLE synthetic samples
 ├── synthetic_data_pkls_HC/        # Generated HC synthetic samples
 ├── fid_results/                   # FID evaluation results
-├── qualitative_results.csv       # Qualitative evaluation results
-├── test.ipynb                     # Testing and exploration notebook
 ├── visualize.ipynb               # Visualization utilities
 └── data_split.ipynb              # Data splitting utilities
 ```
@@ -73,7 +71,6 @@ Diffusion_paper/
 
 - **FID (Fréchet Inception Distance)**: Measures distributional similarity between real and synthetic images
 - **Classification Performance**: Accuracy, sensitivity, specificity on real vs synthetic data
-- **Qualitative Assessment**: Visual quality evaluation stored in `qualitative_results.csv`
 - **Saliency Analysis**: Brain region importance for classification decisions
 
 ## Medical Context

@@ -12,20 +12,10 @@ import numpy as np
 from copy import deepcopy
 from collections import OrderedDict
 
-# -------------
-#  Your custom dataset for MRI latents
-# -------------
-from dataset import MRIDataset, BalancedBatchSampler  # e.g. "from data.mri_dataset import MRIDataset"
+from dataset import MRIDataset, BalancedBatchSampler  
 
-# -------------
-#  The 3D DiT with window-based attention:
-# -------------
-from model.dit3d_window_attn import DiT3D_models_WindAttn  # e.g. from your local .py
-# Or import your custom dictionary if you named it differently
+from model.dit3d_window_attn import DiT3D_models_WindAttn 
 
-# -------------
-#  Logging / TensorBoard utilities (adapt to your code)
-# -------------
 from tensorboardX import SummaryWriter
 import random
 
@@ -571,11 +561,11 @@ def main():
 def parse_args():
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model_dir', type=str, default='./checkpoints_HC_gan', help='path to save trained model weights')
+    parser.add_argument('--model_dir', type=str, default='./checkpoints_2', help='path to save trained model weights')
     parser.add_argument('--experiment_name', type=str, default='dit3d', help='experiment name (used for checkpointing and logging)')
 
     # Data params
-    parser.add_argument('--dataroot', default='/space/mcdonald-syn01/1/projects/jsawant/DSC250/diffusion_HC/latent_data_gan')
+    parser.add_argument('--dataroot', default='/space/mcdonald-syn01/1/projects/jsawant/Diffusion_paper/diffusion/latent_data')
     parser.add_argument('--category', default='chair')
     parser.add_argument('--num_classes', type=int, default=1)
 

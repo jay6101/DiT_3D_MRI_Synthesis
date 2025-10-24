@@ -743,11 +743,6 @@ class VAE(nn.Module):
 # -------------------------------------------------------------------------
 
 class VAE_Lite(nn.Module):
-    """
-    A lighter version of the AutoencoderKL model that fits more comfortably
-    in ~24GB GPU memory. Reduces the number of channels, removes non-local
-    attention, and uses fewer residual blocks.
-    """
 
     def __init__(
         self,

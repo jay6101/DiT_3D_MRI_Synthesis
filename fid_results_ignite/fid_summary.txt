@@ -1,0 +1,11 @@
+=== Diffusion Paper FID Results Summary (PyTorch Ignite) ===
+Synthetic images folder: /space/mcdonald-syn01/1/projects/jsawant/Diffusion_paper/synthetic_data_pkls_HC
+Synthetic images folder 2: /space/mcdonald-syn01/1/projects/jsawant/Diffusion_paper/synthetic_data_pkls_TLE
+Real images CSV: /space/mcdonald-syn01/1/projects/jsawant/Diffusion_paper/data_csvs/val.csv
+Max files processed: 477
+Device used: cuda:0
+
+Average FID for axis 0 (sagittal): 18.1985
+Average FID for axis 1 (coronal): 17.3634
+Average FID for axis 2 (axial): 16.9269
+Overall average FID: 17.4874

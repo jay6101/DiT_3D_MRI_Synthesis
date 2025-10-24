@@ -230,7 +230,7 @@ if __name__ == "__main__":
         'disc_lr': 1e-6,
         'vae_lr': 1e-4,
         'weight_decay': 0,
-        'num_epochs': 1,
+        'num_epochs': 100,
         'runs_dir': '/space/mcdonald-syn01/1/projects/jsawant/DSC250/VAE_GAN/runs',
         'random_seed': 42,
         'use_early_stopping': True,
