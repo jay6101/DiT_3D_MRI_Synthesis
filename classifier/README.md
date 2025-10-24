@@ -8,7 +8,6 @@ The classifier component serves multiple roles in our pipeline:
 1. **Baseline Performance**: Establish classification performance on real data
 2. **Synthetic Data Evaluation**: Assess quality of generated synthetic images
 3. **Interpretability**: Generate saliency maps to understand model decisions
-4. **Cross-Validation**: Robust evaluation with k-fold cross-validation
 
 ## Directory Structure
 
@@ -72,11 +71,6 @@ train_sampler = BalancedBatchSampler(train_dataset, batch_size)
 train_loader = DataLoader(train_dataset, batch_sampler=train_sampler)
 ```
 
-#### Cross-Validation
-- **K-Fold**: 5-fold stratified cross-validation
-- **Stratification**: Maintains class balance across folds
-- **Robust Evaluation**: Reduces overfitting to specific train/test splits
-
 ## Training Configuration
 
 ### Hyperparameters
@@ -136,12 +130,6 @@ def calculate_metrics(y_true, y_pred, y_scores):
     """
 ```
 
-### Cross-Validation Metrics
-
-- **Per-Fold Metrics**: Individual fold performance
-- **Overall Metrics**: Aggregated performance across folds
-- **Statistical Significance**: Confidence intervals and p-values
-
 ## Saliency Analysis
 
 For detailed saliency analysis documentation, see [SALIENCY_README.md](SALIENCY_README.md).
@@ -155,14 +143,6 @@ python run_saliency_generation.py \
     --output_dir ./saliency_outputs \
     --methods vanilla_backprop guided_backprop grad_cam
 ```
-
-### Supported Saliency Methods
-
-1. **Vanilla Backpropagation**: Basic gradient-based attribution
-2. **Guided Backpropagation**: ReLU-guided gradients
-3. **Grad-CAM**: Class activation mapping
-4. **Integrated Gradients**: Path-integrated attributions
-5. **Layer-wise Relevance Propagation (LRP)**: Relevance decomposition
 
 ## Implementation Details
 
@@ -208,11 +188,6 @@ test_df = pd.read_csv(test_csv)
 train_df = train_df[train_df["HC_vs_LTLE_vs_RTLE_string"].isin(["right", "left", "HC"])]
 ```
 
-### 2. Cross-Validation Setup
-```python
-# 5-fold stratified cross-validation
-skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
-```
 
 ### 3. Model Training
 ```python
@@ -251,13 +226,9 @@ new_runs/
 └── run_YYYYMMDD_HHMMSS_modelname/
     ├── parameters.json           # Hyperparameters
     ├── fold_1/
-    │   ├── best_model.pth       # Best model checkpoint
-    │   ├── fold_metrics.json    # Fold performance metrics
-    │   └── saliency_maps/       # Generated saliency maps
-    ├── fold_2/
-    ├── ...
-    ├── overall_metrics.json     # Cross-validation summary
-    └── source_files/           # Copied source code for reproducibility
+        ├── best_model.pth       # Best model checkpoint
+        ├── fold_metrics.json    # Fold performance metrics
+        └── saliency_maps/       # Generated saliency maps
 ```
 
 ## Integration with Pipeline

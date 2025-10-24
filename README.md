@@ -54,11 +54,11 @@ Diffusion_paper/
 
 ### VAE Component
 - **Architecture**: 3D encoder-decoder with ResNet blocks
-- **Purpose**: Compress 3D MRI volumes (typically 91×109×91) into latent space
+- **Purpose**: Compress 3D MRI volumes into latent space
 - **Training**: Reconstruction loss + KL divergence + optional adversarial loss
 
 ### Diffusion Component  
-- **Architecture**: 3D DiT (Diffusion Transformer) with window-based attention
+- **Architecture**: 3D DiT (Diffusion Transformer)
 - **Purpose**: Generate new latent codes that can be decoded into synthetic MRI volumes
 - **Training**: Denoising diffusion probabilistic model (DDPM) in latent space
 
